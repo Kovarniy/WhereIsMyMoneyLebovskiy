@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-whereismymoneylebovskiy" insertBefore="administration">
+        <item screen="whereismymoneylebovskiy_Debtors.browse"/>
+        <item screen="whereismymoneylebovskiy_LetterTemplates.browse"/>
+        <item screen="whereismymoneylebovskiy_LetterBase.browse"/>
+    </menu>
+</menu-config>

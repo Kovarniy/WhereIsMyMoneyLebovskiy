@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.whereismymoneylebovskiy.web.screens.lettertemplate">
+    <data>
+        <instance id="letterTemplateDc"
+                  class="com.company.whereismymoneylebovskiy.entity.LetterTemplate"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="1000"
+                width="1000"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="letterTemplateDc">
+            <column width="900px">
+                <textField id="letterTypeField" property="letterType"/>
+                <richTextArea id="templateField" height="500" property="template"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

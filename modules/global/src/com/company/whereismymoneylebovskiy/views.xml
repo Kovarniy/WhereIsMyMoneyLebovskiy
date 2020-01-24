@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="whereismymoneylebovskiy_LetterBase" name="letterBase-browse-view" extends="_local">
+        <property name="debtor" view="_minimal">
+            <property name="amountOfDebt"/>
+        </property>
+        <property name="letter" view="_minimal"/>
+    </view>
+    <view entity="whereismymoneylebovskiy_LetterBase" name="letterBase-edit-view" extends="_local">
+        <property name="debtor" view="_minimal">
+            <property name="amountOfDebt"/>
+        </property>
+        <property name="letter" view="_minimal"/>
+    </view>
+</views>

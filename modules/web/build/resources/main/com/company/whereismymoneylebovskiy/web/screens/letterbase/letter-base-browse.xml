@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="letterBasesTable"
+        messagesPack="com.company.whereismymoneylebovskiy.web.screens.letterbase">
+    <data readOnly="true">
+        <collection id="letterBasesDc"
+                    class="com.company.whereismymoneylebovskiy.entity.LetterBase"
+                    view="letterBase-browse-view">
+            <loader id="letterBasesDl">
+                <query>
+                    <![CDATA[select e from whereismymoneylebovskiy_LetterBase e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="letterBasesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="letterBasesTable"
+                dataLoader="letterBasesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="letterBasesTable"
+                    width="100%"
+                    dataContainer="letterBasesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="debtor"/>
+                <column id="letter"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="letterBasesTable.create"/>
+                <button id="editBtn" action="letterBasesTable.edit"/>
+                <button id="removeBtn" action="letterBasesTable.remove"/>
+                <button id="excelBtn" action="letterBasesTable.excel"/>
+                <button id="printDetails" />
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

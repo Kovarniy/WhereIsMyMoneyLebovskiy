@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.whereismymoneylebovskiy.web.screens.letterbase">
+    <data>
+        <instance id="letterBaseDc"
+                  class="com.company.whereismymoneylebovskiy.entity.LetterBase"
+                  view="letterBase-edit-view">
+            <loader/>
+        </instance>
+        <collection id="debtorsDc" class="com.company.whereismymoneylebovskiy.entity.Debtor" view="_minimal">
+            <loader id="debtorsLc">
+                <query>
+                    <![CDATA[select e from whereismymoneylebovskiy_Debtors e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="lettersDc" class="com.company.whereismymoneylebovskiy.entity.LetterTemplate" view="_minimal">
+            <loader id="lettersLc">
+                <query>
+                    <![CDATA[select e from whereismymoneylebovskiy_LetterTemplates e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="letterBaseDc">
+            <column width="450px">
+                <lookupPickerField id="debtorField" optionsContainer="debtorsDc" property="debtor">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="letterField" optionsContainer="lettersDc" property="letter">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                    </actions>
+                </lookupPickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
